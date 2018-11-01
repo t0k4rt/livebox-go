@@ -9,9 +9,9 @@ import (
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	strfmt "github.com/go-openapi/strfmt"
-	"github.com/tokart/livebox-go/client/ip_address"
+	"github.com/t0k4rt/livebox-go/client/ip_address"
 
-	"github.com/tokart/livebox-go/client/ip_address"
+	"github.com/t0k4rt/livebox-go/client/ip_address"
 )
 
 // Default livebox HTTP client.
