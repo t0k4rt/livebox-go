@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  title: "Livbox api"
+  version: "1.0.0"
+host: livebox.local
+schemes:
+  - http
+
+tags:
+  - name: IP address
+    description: Get public ip address
+
+paths:
+  /:
+    post:
+      tags:
+        - IP address
+      summary: Returns public ip address
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      WanState: 
+                        type: string
+                      LinkType: 
+                        type: string
+                      LinkState: 
+                        type: string
+                      MACAddress: 
+                        type: string
+                      Protocol: 
+                        type: string
+                      ConnectionState: 
+                        type: string
+                      LastConnectionError: 
+                        type: string
+                      IPAddress: 
+                        type: string
+                      RemoteGateway: 
+                        type: string
+                      DNSServers: 
+                        type: string
+                      IPv6Address: 
+                        type: string
+                      IPv6DelegatedPrefix: 
+                        type: string
+
