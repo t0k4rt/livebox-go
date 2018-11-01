@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: "Livbox api"
+  title: "Livebox api"
   version: "1.0.0"
 host: livebox.local
 schemes:
