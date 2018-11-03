@@ -11,7 +11,7 @@ tags:
     description: Get public ip address
 
 paths:
-  /:
+  "/sysbus/NMC:getWANStatus":
     post:
       tags:
         - IP address

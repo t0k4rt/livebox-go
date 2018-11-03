@@ -15,17 +15,17 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// PostReader is a Reader for the Post structure.
-type PostReader struct {
+// PostSysbusNMCGetWANStatusReader is a Reader for the PostSysbusNMCGetWANStatus structure.
+type PostSysbusNMCGetWANStatusReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PostReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PostSysbusNMCGetWANStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 
 	case 200:
-		result := NewPostOK()
+		result := NewPostSysbusNMCGetWANStatusOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -36,26 +36,26 @@ func (o *PostReader) ReadResponse(response runtime.ClientResponse, consumer runt
 	}
 }
 
-// NewPostOK creates a PostOK with default headers values
-func NewPostOK() *PostOK {
-	return &PostOK{}
+// NewPostSysbusNMCGetWANStatusOK creates a PostSysbusNMCGetWANStatusOK with default headers values
+func NewPostSysbusNMCGetWANStatusOK() *PostSysbusNMCGetWANStatusOK {
+	return &PostSysbusNMCGetWANStatusOK{}
 }
 
-/*PostOK handles this case with default header values.
+/*PostSysbusNMCGetWANStatusOK handles this case with default header values.
 
 OK
 */
-type PostOK struct {
-	Payload *PostOKBody
+type PostSysbusNMCGetWANStatusOK struct {
+	Payload *PostSysbusNMCGetWANStatusOKBody
 }
 
-func (o *PostOK) Error() string {
-	return fmt.Sprintf("[POST /][%d] postOK  %+v", 200, o.Payload)
+func (o *PostSysbusNMCGetWANStatusOK) Error() string {
+	return fmt.Sprintf("[POST /sysbus/NMC:getWANStatus][%d] postSysbusNMCGetWANStatusOK  %+v", 200, o.Payload)
 }
 
-func (o *PostOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *PostSysbusNMCGetWANStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(PostOKBody)
+	o.Payload = new(PostSysbusNMCGetWANStatusOKBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -65,17 +65,17 @@ func (o *PostOK) readResponse(response runtime.ClientResponse, consumer runtime.
 	return nil
 }
 
-/*PostOKBody post o k body
-swagger:model PostOKBody
+/*PostSysbusNMCGetWANStatusOKBody post sysbus n m c get w a n status o k body
+swagger:model PostSysbusNMCGetWANStatusOKBody
 */
-type PostOKBody struct {
+type PostSysbusNMCGetWANStatusOKBody struct {
 
 	// result
-	Result *PostOKBodyResult `json:"result,omitempty"`
+	Result *PostSysbusNMCGetWANStatusOKBodyResult `json:"result,omitempty"`
 }
 
-// Validate validates this post o k body
-func (o *PostOKBody) Validate(formats strfmt.Registry) error {
+// Validate validates this post sysbus n m c get w a n status o k body
+func (o *PostSysbusNMCGetWANStatusOKBody) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := o.validateResult(formats); err != nil {
@@ -88,7 +88,7 @@ func (o *PostOKBody) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (o *PostOKBody) validateResult(formats strfmt.Registry) error {
+func (o *PostSysbusNMCGetWANStatusOKBody) validateResult(formats strfmt.Registry) error {
 
 	if swag.IsZero(o.Result) { // not required
 		return nil
@@ -97,7 +97,7 @@ func (o *PostOKBody) validateResult(formats strfmt.Registry) error {
 	if o.Result != nil {
 		if err := o.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("postOK" + "." + "result")
+				return ve.ValidateName("postSysbusNMCGetWANStatusOK" + "." + "result")
 			}
 			return err
 		}
@@ -107,7 +107,7 @@ func (o *PostOKBody) validateResult(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (o *PostOKBody) MarshalBinary() ([]byte, error) {
+func (o *PostSysbusNMCGetWANStatusOKBody) MarshalBinary() ([]byte, error) {
 	if o == nil {
 		return nil, nil
 	}
@@ -115,8 +115,8 @@ func (o *PostOKBody) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (o *PostOKBody) UnmarshalBinary(b []byte) error {
-	var res PostOKBody
+func (o *PostSysbusNMCGetWANStatusOKBody) UnmarshalBinary(b []byte) error {
+	var res PostSysbusNMCGetWANStatusOKBody
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
@@ -124,20 +124,20 @@ func (o *PostOKBody) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
-/*PostOKBodyResult post o k body result
-swagger:model PostOKBodyResult
+/*PostSysbusNMCGetWANStatusOKBodyResult post sysbus n m c get w a n status o k body result
+swagger:model PostSysbusNMCGetWANStatusOKBodyResult
 */
-type PostOKBodyResult struct {
+type PostSysbusNMCGetWANStatusOKBodyResult struct {
 
 	// data
-	Data *PostOKBodyResultData `json:"data,omitempty"`
+	Data *PostSysbusNMCGetWANStatusOKBodyResultData `json:"data,omitempty"`
 
 	// status
 	Status bool `json:"status,omitempty"`
 }
 
-// Validate validates this post o k body result
-func (o *PostOKBodyResult) Validate(formats strfmt.Registry) error {
+// Validate validates this post sysbus n m c get w a n status o k body result
+func (o *PostSysbusNMCGetWANStatusOKBodyResult) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := o.validateData(formats); err != nil {
@@ -150,7 +150,7 @@ func (o *PostOKBodyResult) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (o *PostOKBodyResult) validateData(formats strfmt.Registry) error {
+func (o *PostSysbusNMCGetWANStatusOKBodyResult) validateData(formats strfmt.Registry) error {
 
 	if swag.IsZero(o.Data) { // not required
 		return nil
@@ -159,7 +159,7 @@ func (o *PostOKBodyResult) validateData(formats strfmt.Registry) error {
 	if o.Data != nil {
 		if err := o.Data.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("postOK" + "." + "result" + "." + "data")
+				return ve.ValidateName("postSysbusNMCGetWANStatusOK" + "." + "result" + "." + "data")
 			}
 			return err
 		}
@@ -169,7 +169,7 @@ func (o *PostOKBodyResult) validateData(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (o *PostOKBodyResult) MarshalBinary() ([]byte, error) {
+func (o *PostSysbusNMCGetWANStatusOKBodyResult) MarshalBinary() ([]byte, error) {
 	if o == nil {
 		return nil, nil
 	}
@@ -177,8 +177,8 @@ func (o *PostOKBodyResult) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (o *PostOKBodyResult) UnmarshalBinary(b []byte) error {
-	var res PostOKBodyResult
+func (o *PostSysbusNMCGetWANStatusOKBodyResult) UnmarshalBinary(b []byte) error {
+	var res PostSysbusNMCGetWANStatusOKBodyResult
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
@@ -186,10 +186,10 @@ func (o *PostOKBodyResult) UnmarshalBinary(b []byte) error {
 	return nil
 }
 
-/*PostOKBodyResultData post o k body result data
-swagger:model PostOKBodyResultData
+/*PostSysbusNMCGetWANStatusOKBodyResultData post sysbus n m c get w a n status o k body result data
+swagger:model PostSysbusNMCGetWANStatusOKBodyResultData
 */
-type PostOKBodyResultData struct {
+type PostSysbusNMCGetWANStatusOKBodyResultData struct {
 
 	// connection state
 	ConnectionState string `json:"ConnectionState,omitempty"`
@@ -228,13 +228,13 @@ type PostOKBodyResultData struct {
 	WanState string `json:"WanState,omitempty"`
 }
 
-// Validate validates this post o k body result data
-func (o *PostOKBodyResultData) Validate(formats strfmt.Registry) error {
+// Validate validates this post sysbus n m c get w a n status o k body result data
+func (o *PostSysbusNMCGetWANStatusOKBodyResultData) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (o *PostOKBodyResultData) MarshalBinary() ([]byte, error) {
+func (o *PostSysbusNMCGetWANStatusOKBodyResultData) MarshalBinary() ([]byte, error) {
 	if o == nil {
 		return nil, nil
 	}
@@ -242,8 +242,8 @@ func (o *PostOKBodyResultData) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (o *PostOKBodyResultData) UnmarshalBinary(b []byte) error {
-	var res PostOKBodyResultData
+func (o *PostSysbusNMCGetWANStatusOKBodyResultData) UnmarshalBinary(b []byte) error {
+	var res PostSysbusNMCGetWANStatusOKBodyResultData
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -24,32 +24,32 @@ type Client struct {
 }
 
 /*
-Post returns public ip address
+PostSysbusNMCGetWANStatus returns public ip address
 
 Optional extended description in Markdown.
 */
-func (a *Client) Post(params *PostParams) (*PostOK, error) {
+func (a *Client) PostSysbusNMCGetWANStatus(params *PostSysbusNMCGetWANStatusParams) (*PostSysbusNMCGetWANStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPostParams()
+		params = NewPostSysbusNMCGetWANStatusParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "Post",
+		ID:                 "PostSysbusNMCGetWANStatus",
 		Method:             "POST",
-		PathPattern:        "/",
+		PathPattern:        "/sysbus/NMC:getWANStatus",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{""},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PostReader{formats: a.formats},
+		Reader:             &PostSysbusNMCGetWANStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	return result.(*PostOK), nil
+	return result.(*PostSysbusNMCGetWANStatusOK), nil
 
 }
 
